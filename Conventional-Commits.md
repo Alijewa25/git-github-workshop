@@ -1,193 +1,270 @@
 # Conventional Commits
 
-## Introduction
-
-Conventional Commits is a standard for writing clear and consistent commit messages.
-
-It makes project history easier to understand, improves collaboration, and supports automated versioning and changelog generation.
+> A standardized convention for writing clear, consistent, and meaningful Git commit messages.
 
 ---
 
-## Commit Format
+## Table of Contents
 
-<type>: <short description>
-
-Example:
-
-feat: add user authentication
-fix: resolve navbar alignment issue
-docs: update installation guide
-
----
-
-## Common Commit Types
-
-### feat
-
-A new feature.
-
-Example:
-
-feat: add dark mode
+- [What are Conventional Commits?](#what-are-conventional-commits)
+- [Why Use Conventional Commits?](#why-use-conventional-commits)
+- [Commit Message Structure](#commit-message-structure)
+- [Commit Types](#commit-types)
+- [Scope](#scope)
+- [Breaking Changes](#breaking-changes)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Common Mistakes](#common-mistakes)
+- [Quick Reference](#quick-reference)
+- [Summary](#summary)
 
 ---
 
-### fix
+# What are Conventional Commits?
 
-A bug fix.
+Conventional Commits is a widely adopted specification for writing commit messages in a consistent format.
 
-Example:
-
-fix: prevent duplicate login requests
+Using this convention makes Git history easier to read, improves collaboration, and enables automated tools such as changelog generators and semantic versioning.
 
 ---
 
-### docs
+# Why Use Conventional Commits?
 
-Documentation changes only.
-
-Example:
-
-docs: update README
-
----
-
-### style
-
-Formatting changes that do not affect code behavior.
-
-Example:
-
-style: format CSS files
+| Benefit | Description |
+|----------|-------------|
+| 📖 Readable History | Makes commit history easier to understand |
+| 👥 Better Collaboration | Everyone follows the same structure |
+| 🚀 Easier Code Reviews | Reviewers instantly know what changed |
+| 🤖 Automation | Supports automatic changelog generation |
+| 📦 Semantic Versioning | Works with automated release tools |
+| 🔍 Easier Debugging | Quickly locate specific changes |
 
 ---
 
-### refactor
+# Commit Message Structure
 
-Code improvements without changing functionality.
+General format:
+
+```text
+<type>(optional-scope): <description>
+```
 
 Example:
 
-refactor: simplify authentication logic
+```bash
+feat(auth): add Google authentication
+```
 
 ---
 
-### test
+## Structure Breakdown
 
-Adding or updating tests.
-
-Example:
-
-test: add login unit tests
-
----
-
-### chore
-
-Maintenance tasks.
-
-Example:
-
-chore: update dependencies
+| Part | Required | Description |
+|------|----------|-------------|
+| Type | ✅ | Specifies the type of change |
+| Scope | Optional | Indicates the affected module |
+| Description | ✅ | Short explanation of the change |
 
 ---
 
-### perf
+# Commit Types
 
-Performance improvements.
-
-Example:
-
-perf: optimize database queries
-
----
-
-### build
-
-Changes affecting build tools.
-
-Example:
-
-build: update webpack configuration
+| Type | Purpose | Example |
+|------|---------|---------|
+| **feat** | Introduce a new feature | `feat: add dark mode` |
+| **fix** | Fix a bug | `fix: resolve login error` |
+| **docs** | Documentation only | `docs: update README` |
+| **style** | Formatting or styling | `style: format CSS files` |
+| **refactor** | Improve code without changing behavior | `refactor: simplify authentication` |
+| **test** | Add or update tests | `test: add unit tests` |
+| **perf** | Improve performance | `perf: optimize database query` |
+| **build** | Build system changes | `build: update webpack configuration` |
+| **ci** | Continuous Integration changes | `ci: add GitHub Actions workflow` |
+| **chore** | Maintenance tasks | `chore: update dependencies` |
 
 ---
 
-### ci
+# Scope
 
-Continuous Integration changes.
+The scope identifies the part of the project affected by the change.
 
-Example:
+Examples:
 
-ci: update GitHub Actions workflow
+```bash
+feat(auth): add login API
+```
 
----
+```bash
+fix(ui): resolve button alignment
+```
 
-## Scope (Optional)
+```bash
+docs(readme): improve installation guide
+```
 
-You can specify the affected area.
-
-Example:
-
-feat(auth): add Google login
-
-fix(api): handle timeout errors
-
-docs(readme): update screenshots
+Using scopes is optional but highly recommended for medium and large projects.
 
 ---
 
-## Breaking Changes
+# Breaking Changes
 
-Use ! after the type.
+If a commit introduces incompatible changes, use **!** after the type.
 
 Example:
 
+```bash
 feat!: redesign authentication system
+```
 
-Or:
+or
 
-BREAKING CHANGE: authentication API has changed.
+```text
+BREAKING CHANGE: Authentication API has changed.
+```
 
 ---
+
+# Examples
 
 ## Good Examples
 
-feat: add user profile page
+```bash
+feat: add user dashboard
+```
 
-fix: correct mobile layout
+```bash
+fix: prevent duplicate requests
+```
 
-docs: update contributing guide
+```bash
+docs: update installation guide
+```
 
+```bash
 refactor: simplify payment service
+```
 
-test: add API integration tests
+```bash
+perf: optimize SQL queries
+```
 
 ---
 
 ## Bad Examples
 
+```text
 update
+```
 
-final
-
+```text
 test
+```
 
-asdf
+```text
+final
+```
 
+```text
 123
+```
+
+```text
+asdf
+```
+
+These commit messages provide little or no useful information.
 
 ---
 
-## Benefits
+# Best Practices
 
-- Clear project history
-- Easier code reviews
-- Automatic changelog generation
-- Better collaboration
-- Professional development workflow
+✅ Write commit messages in the imperative mood.
+
+Good:
+
+```text
+Add login page
+```
+
+Bad:
+
+```text
+Added login page
+```
 
 ---
 
-## Summary
+✅ Keep the first line concise.
 
-Conventional Commits provide a simple and consistent way to write commit messages. Following this standard improves readability, collaboration, and long-term project maintenance.
+Recommended length:
+
+**Less than 50 characters**
+
+---
+
+✅ One commit should represent one logical change.
+
+Good:
+
+```
+Add login form
+
+Add validation
+
+Connect API
+```
+
+Bad:
+
+```
+Complete project
+```
+
+---
+
+✅ Make commits frequently.
+
+Small commits are easier to review, revert, and debug.
+
+---
+
+✅ Use meaningful commit messages.
+
+Every commit should clearly explain **what changed**.
+
+---
+
+# Common Mistakes
+
+| ❌ Avoid | ✅ Prefer |
+|----------|-----------|
+| update | feat: add profile page |
+| final | fix: resolve navbar bug |
+| test | docs: update README |
+| asdf | refactor: simplify API |
+| commit | chore: update dependencies |
+
+---
+
+# Quick Reference
+
+| Situation | Commit Type |
+|------------|------------|
+| New feature | feat |
+| Bug fix | fix |
+| Documentation | docs |
+| Refactoring | refactor |
+| Styling | style |
+| Tests | test |
+| Performance | perf |
+| Build system | build |
+| CI/CD | ci |
+| Maintenance | chore |
+
+---
+
+# Summary
+
+Conventional Commits provide a standardized way to write Git commit messages.
+
+Following this convention helps maintain a clean project history, improves collaboration, simplifies debugging, and supports automated development workflows.
