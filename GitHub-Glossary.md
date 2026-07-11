@@ -1,219 +1,412 @@
 # GitHub Glossary
 
-## Introduction
-
-This glossary explains the most common Git and GitHub terms that every developer should know.
+> A quick reference guide to the most common Git and GitHub terms every developer should know.
 
 ---
 
-## Repository
+## Table of Contents
 
-A repository (repo) is a project that contains source code, files, and version history.
+- [Repository](#repository)
+- [Local Repository](#local-repository)
+- [Remote Repository](#remote-repository)
+- [Git](#git)
+- [GitHub](#github)
+- [Commit](#commit)
+- [Branch](#branch)
+- [Main Branch](#main-branch)
+- [Clone](#clone)
+- [Fork](#fork)
+- [Origin](#origin)
+- [Upstream](#upstream)
+- [Push](#push)
+- [Pull](#pull)
+- [Fetch](#fetch)
+- [Merge](#merge)
+- [Merge Conflict](#merge-conflict)
+- [Pull Request](#pull-request)
+- [Working Directory](#working-directory)
+- [Staging Area](#staging-area)
+- [HEAD](#head)
+- [Tag](#tag)
+- [Release](#release)
+- [.gitignore](#gitignore)
+- [README.md](#readmemd)
+- [LICENSE](#license)
+- [Issue](#issue)
+- [GitHub Actions](#github-actions)
+- [Workflow](#workflow)
+- [Artifact](#artifact)
+- [Summary](#summary)
 
 ---
 
-## Commit
+# Repository
 
-A snapshot of your project at a specific point in time.
+A **repository** (or **repo**) is a storage location for a project's source code, files, documentation, and version history.
+
+Example:
+
+```
+portfolio/
+│
+├── README.md
+├── src/
+├── images/
+└── .gitignore
+```
 
 ---
 
-## Branch
+# Local Repository
 
-An independent line of development.
+A repository stored on your own computer.
 
----
-
-## Main Branch
-
-The primary branch that usually contains stable production-ready code.
+You make changes here before sharing them with others.
 
 ---
 
-## Clone
+# Remote Repository
 
-Downloading an existing repository to your computer.
+A repository hosted on a remote server such as GitHub.
+
+It allows multiple developers to collaborate on the same project.
+
+---
+
+# Git
+
+Git is a distributed Version Control System (VCS) used to track file changes, manage versions, and collaborate with other developers.
+
+---
+
+# GitHub
+
+GitHub is a cloud-based platform that hosts Git repositories and provides collaboration tools such as:
+
+- Pull Requests
+- Issues
+- GitHub Actions
+- Releases
+- Discussions
+- Project Boards
+
+---
+
+# Commit
+
+A commit is a snapshot of your project at a specific point in time.
+
+Example:
+
+```bash
+git commit -m "Add login page"
+```
+
+Each commit has its own unique ID (SHA).
+
+---
+
+# Branch
+
+A branch is an independent line of development.
+
+Different features and bug fixes are usually developed in separate branches.
+
+Example:
+
+```
+main
+│
+├── feature/login
+├── feature/dashboard
+└── bugfix/navbar
+```
+
+---
+
+# Main Branch
+
+The default branch of a repository.
+
+It should always contain stable and production-ready code.
+
+---
+
+# Clone
+
+Creates a copy of an existing remote repository on your computer.
 
 Command:
 
-git clone <repository-url>
+```bash
+git clone https://github.com/username/project.git
+```
 
 ---
 
-## Fork
+# Fork
 
-A personal copy of another user's repository on GitHub.
+A personal copy of someone else's GitHub repository.
 
----
-
-## Remote Repository
-
-A repository stored on GitHub or another server.
+Forking allows you to experiment without affecting the original project.
 
 ---
 
-## Local Repository
-
-The copy of a repository stored on your own computer.
-
----
-
-## Origin
+# Origin
 
 The default name of the remote repository.
 
 Example:
 
-origin → GitHub repository
+```text
+origin → https://github.com/username/project.git
+```
 
 ---
 
-## Upstream
+# Upstream
 
 The original repository from which a fork was created.
 
----
-
-## Pull
-
-Download and merge changes from a remote repository.
+Useful when contributing to open-source projects.
 
 ---
 
-## Push
+# Push
 
-Upload local commits to a remote repository.
+Uploads your local commits to a remote repository.
 
----
+Command:
 
-## Fetch
-
-Download changes without merging them.
-
----
-
-## Merge
-
-Combine changes from one branch into another.
+```bash
+git push
+```
 
 ---
 
-## Merge Conflict
+# Pull
 
-Occurs when Git cannot automatically combine changes.
+Downloads and merges changes from a remote repository.
 
----
+Command:
 
-## Pull Request (PR)
-
-A request to merge one branch into another after review.
-
----
-
-## Staging Area
-
-A temporary area where changes are prepared before committing.
+```bash
+git pull
+```
 
 ---
 
-## Working Directory
+# Fetch
 
-The current project files you are editing.
+Downloads new commits from the remote repository without merging them.
+
+Command:
+
+```bash
+git fetch
+```
 
 ---
 
-## HEAD
+# Merge
 
-A pointer to the current commit or branch.
+Combines changes from one branch into another.
+
+Command:
+
+```bash
+git merge feature/login
+```
 
 ---
 
-## Tag
+# Merge Conflict
 
-A label used to mark important versions.
+Occurs when Git cannot automatically combine changes because two versions modify the same lines.
+
+Developers must manually resolve the conflict before continuing.
+
+---
+
+# Pull Request
+
+A Pull Request (PR) is a request to merge one branch into another.
+
+Benefits:
+
+- Code Review
+- Team Discussion
+- Automated Testing
+- Higher Code Quality
+
+---
+
+# Working Directory
+
+The files currently being edited on your computer.
+
+Changes made here are not yet tracked until staged.
+
+---
+
+# Staging Area
+
+A temporary area where changes are prepared before creating a commit.
+
+Command:
+
+```bash
+git add .
+```
+
+---
+
+# HEAD
+
+HEAD is a pointer to the currently checked-out commit or branch.
+
+It represents your current working position in Git history.
+
+---
+
+# Tag
+
+A tag marks a specific commit, usually representing a release.
 
 Example:
 
-v1.0
-
-v2.0
-
----
-
-## Release
-
-A published version of a project, often associated with a Git tag.
+```bash
+git tag v1.0.0
+```
 
 ---
 
-## .gitignore
+# Release
 
-A file that tells Git which files and folders should not be tracked.
+A release is a published version of a project.
+
+Releases are commonly associated with Git tags and contain release notes.
 
 ---
 
-## README.md
+# .gitignore
+
+A configuration file that tells Git which files and directories should not be tracked.
+
+Common examples:
+
+```text
+node_modules/
+.env
+dist/
+.vscode/
+```
+
+---
+
+# README.md
 
 The main documentation file of a repository.
 
----
+A professional README usually includes:
 
-## LICENSE
-
-Defines how others may use your project.
-
----
-
-## Issue
-
-A GitHub feature for reporting bugs, requesting features, or tracking tasks.
+- Project Overview
+- Installation
+- Usage
+- Features
+- License
+- Contribution Guide
 
 ---
 
-## GitHub Actions
+# LICENSE
 
-GitHub's built-in Continuous Integration and Continuous Deployment (CI/CD) platform.
+Defines how others may use, modify, and distribute your project.
 
----
+Popular licenses include:
 
-## Workflow
-
-An automated process executed by GitHub Actions.
-
----
-
-## Artifact
-
-A file generated during a workflow, such as a build or test report.
+| License | Description |
+|----------|-------------|
+| MIT | Very permissive |
+| Apache 2.0 | Includes patent protection |
+| GPL | Requires derivative works to remain open-source |
+| BSD | Simple permissive license |
 
 ---
 
-## Release Branch
+# Issue
 
-A branch created to prepare a new software release.
+An Issue is used to report:
 
----
+- Bugs
+- Feature Requests
+- Improvements
+- Tasks
 
-## Hotfix
-
-A quick fix for a critical production issue.
-
----
-
-## Semantic Versioning
-
-A version numbering standard.
-
-Format:
-
-MAJOR.MINOR.PATCH
-
-Example:
-
-1.4.2
+Issues help organize project development.
 
 ---
 
-## Summary
+# GitHub Actions
 
-Understanding Git and GitHub terminology makes collaboration easier and helps developers communicate effectively when working on software projects.
+GitHub Actions is GitHub's built-in Continuous Integration and Continuous Deployment (CI/CD) platform.
+
+It automates tasks such as:
+
+- Running Tests
+- Building Projects
+- Deployments
+- Code Quality Checks
+
+---
+
+# Workflow
+
+A workflow is an automated process executed by GitHub Actions.
+
+Workflows are stored inside:
+
+```text
+.github/workflows/
+```
+
+---
+
+# Artifact
+
+An artifact is a file generated during a workflow.
+
+Examples include:
+
+- Build files
+- Test reports
+- Coverage reports
+- Deployment packages
+
+---
+
+# Quick Reference
+
+| Term | Meaning |
+|------|---------|
+| Repository | Project storage |
+| Commit | Snapshot of changes |
+| Branch | Independent development line |
+| Clone | Download repository |
+| Fork | Personal copy of another repository |
+| Push | Upload commits |
+| Pull | Download and merge changes |
+| Fetch | Download changes only |
+| Merge | Combine branches |
+| Pull Request | Request to merge code |
+| HEAD | Current Git position |
+| Tag | Mark a version |
+| Release | Published project version |
+| Issue | Track bugs and tasks |
+| GitHub Actions | Automation platform |
+
+---
+
+# Summary
+
+Understanding Git and GitHub terminology is essential for effective collaboration and professional software development. Familiarity with these concepts helps developers communicate clearly, navigate repositories confidently, and follow industry-standard workflows.
