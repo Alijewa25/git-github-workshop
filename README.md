@@ -249,9 +249,9 @@ Include your name and contact information.
 Example:
 
 ```markdown
-Author: John Doe
+Author: Tahmina Aliyeva
 
-GitHub: https://github.com/johndoe
+GitHub: [https://github.com/Alijewa25](https://github.com/Alijewa25)
 ```
 
 ---
