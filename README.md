@@ -298,4 +298,4 @@ MIT License
 
 ## Author
 
-John Doe
+Tahmina Alijewa
