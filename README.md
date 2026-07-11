@@ -251,7 +251,7 @@ Example:
 ```markdown
 Author: Tahmina Aliyeva
 
-GitHub: [https://github.com/Alijewa25](https://github.com/Alijewa25)
+GitHub: https://github.com/Alijewa25
 ```
 
 ---
